@@ -10,5 +10,12 @@ module.exports = function(app) {
         var burgs = db.Burger.findAll({});
         console.log(burgs);
         res.render("index", burgs);
+    });
+
+    app.post("/api/burger", function(req, res){
+        console.log(req.body);
+        db.Burger.create({burger_name: req.body.burger_name}).then(function(dbBurger){
+            res.json(dbBurger);
+        });
     })
 }
