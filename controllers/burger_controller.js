@@ -7,14 +7,16 @@ var db = require("../models");
 module.exports = function(app) {
     app.get("/", function(req, res){
 
-        var burgs = db.Burger.findAll({});
+        var burgs = db.burger.findAll({});
         console.log(burgs);
         res.render("index", burgs);
     });
 
     app.post("/api/burger", function(req, res){
         console.log(req.body);
-        db.Burger.create({burger_name: req.body.burger_name}).then(function(dbBurger){
+        db.burger.create({
+            burger_name: req.body.burger_name
+        }).then(function(dbBurger){
             res.json(dbBurger);
         });
     })
