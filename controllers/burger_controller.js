@@ -34,8 +34,19 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
-        }).then(function(burger){
+        }).then(function (burger) {
             res.json(burger);
         });
     });
-}
+
+    app.delete("/api/burger/:id", function (req, res) {
+        console.log("DELETE", req.params.id);
+        db.burger.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (burger) {
+            res.json(burger);
+        })
+    });
+};

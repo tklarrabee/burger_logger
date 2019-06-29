@@ -12,7 +12,7 @@ $(document).ready(function(){
         });
     });
 
-    $(".devour").on("click", function(event){
+    $(".devour").on("click", function(){
         // event.preventDefault();
         let id = $(this).data("id");
         let eatBarf = $(this).data("neweat")
@@ -29,6 +29,20 @@ $(document).ready(function(){
               console.log("Burger State " + burgyBurg)
 
               location.reload();
-          })
+          });
     });
-})
+
+    $(".delete-burger").on("click", function(){
+        let id = $(this).data("id");
+        let deadBurg = {id: id};
+        $.ajax({
+            url: "/api/burger/" + id,
+            type: "DELETE",
+            data: deadBurg
+        }).then(function(){
+            console.log("Dead Burger", deadBurg);
+
+            location.reload();
+        });
+    });
+});
