@@ -23,9 +23,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-// require("./routes/post-api-routes.js")(app);
-// require("./routes/author-api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
+
 
 var exphbs = require("express-handlebars");
 

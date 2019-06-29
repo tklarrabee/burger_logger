@@ -3,9 +3,9 @@
 <h2>Uneaten</h2>
 
 <ul>
-  {{#each Burger}}
+  {{#each burger}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=false}}
+        {{> burger-block}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,9 +13,10 @@
 <h2>Eaten</h2>
 
 <ul>
-  {{#each Burger}}
+  {{#each burger}}
     {{#if devoured}}
-      {{> Burgers/burger-block devoured=true}}
+        {{> burger-block}}
+      {{!-- {{> Burger/burger-block devoured=true}} --}}
     {{/if}}
   {{/each}}
 </ul>
